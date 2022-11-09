@@ -237,7 +237,7 @@ export default function Cards() {
           alignItems="center"
           justifyContent="center"
           style={{ maxWidth: 'lg' }}>
-            {jogosApi.map((id, index) => (
+            {jogosApi.reverse().map((id, index) => (
               <Grid key={index} item xs={12} sm={6} md={3}>
                 
                
