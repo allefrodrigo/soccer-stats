@@ -52,13 +52,19 @@ const rows = [
 
 export default function DenseTable(props:any) {
   const [escalacaoJogos, setEscalacaoJogos] = useState({});
+ const  infoData = props.data.data
+  // console.log reservas
+  console.log('>>>>',)
+  console.log(infoData)
+  
   //setEscalacaoJogos(props)
   // console.log('props', props.data.data);
   // console.log('props>>', props.data.data.idPartida);
   //setEscalacaoJogos(props.data)
 
-  let stringConvert = JSON.stringify(props.data.data, null, 4);
-  console.log('stringConvert', stringConvert);
+  // let stringConvert = JSON.stringify(props.data.data, null, 4);
+  // console.log('stringConvert', stringConvert);
+  
   //console.log(escalacaoJogos)
   // show all data from props divided by rows
  

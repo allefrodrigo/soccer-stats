@@ -162,7 +162,7 @@ export default function Cards() {
           },
         },
       );
-        console.log('getEscalacao',data)
+       // console.log('getEscalacao',data)
         setEscalacaoJogos(data)
     return data
   } catch (error) {
@@ -239,7 +239,7 @@ export default function Cards() {
           alignItems="center"
           justifyContent="center"
           style={{ maxWidth: 'lg' }}>
-            {jogosApi.reverse().map((id, index) => (
+            {jogosApi.map((id, index) => (
               <Grid key={index} item xs={12} sm={6} md={3}>
                 
                
