@@ -252,7 +252,7 @@ export default function Cards() {
                   }}
                   >
                     <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: '#383838',width: '100%'}}>
-                {id.championship}  {id.realtime?                 <Chip sx={{margin: 1} }color="error" label="Ao Vivo" size="small" />
+                {id.championship}  {id.realtime?                 <Chip sx={{margin: 1, fontSize: 10, fontWeight: 300 } }color="error" label="Ao Vivo" size="small" />
 : <></>}
 
                 {/* <CardMedia
