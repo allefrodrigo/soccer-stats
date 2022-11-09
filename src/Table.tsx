@@ -55,11 +55,11 @@ export default function DenseTable(props:any) {
   //setEscalacaoJogos(props)
   // console.log('props', props.data.data);
   // console.log('props>>', props.data.data.idPartida);
-  setEscalacaoJogos(props.data)
+  //setEscalacaoJogos(props.data)
 
   let stringConvert = JSON.stringify(props.data.data, null, 4);
   console.log('stringConvert', stringConvert);
-  console.log(escalacaoJogos)
+  //console.log(escalacaoJogos)
   // show all data from props divided by rows
  
   // props.data.map((jogo: any) => {

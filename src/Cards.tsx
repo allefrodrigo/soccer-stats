@@ -251,9 +251,16 @@ export default function Cards() {
                   
                   }}
                   >
-                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: '#383838',width: '100%'}}>
-                {id.championship}  {id.realtime?                 <Chip sx={{margin: 1, fontSize: 10, fontWeight: 300 } }color="error" label="Ao Vivo" size="small" />
+                    <Stack direction="row" spacing={1} sx={{padding: 1}}>
+
+                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white',width: '100%'}}>
+                {id.championship}  
+                </Typography>
+
+                
+                {id.realtime?                 <Chip sx={{ fontSize: 10, fontWeight: 300 } }color="error" label="Ao Vivo" size="small" />
 : <></>}
+</Stack>
 
                 {/* <CardMedia
                   component="img"
@@ -263,7 +270,6 @@ export default function Cards() {
                 />
                  */}
 
-                    </Typography>
                     <Box  sx={{ display: 'flex', flexDirection: 'row'}}>
 
                    <Box sx={{flexDirection: 'column'}}> 
