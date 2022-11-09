@@ -306,12 +306,12 @@ export default function Cards() {
                 {
                   id.gameTime !== 'Não Inic.' ? (
                     <Box sx={{ width: '100%' }}>
-      <LinearProgress color='error'/>
+      <LinearProgress color={id.gameTime === 'Final' ? 'success' : 'error'}/>
     </Box>
     ) : (<> </>)
                   
 }
-                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: id.gameTime === 'Não Inic.' ? '#383838' : '#C7070F', width: '100%'}}>
+                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: id.gameTime === 'Não Inic.' ? '#383838' : id.gameTime ==='Final' ? 'success' : '#C7070F', width: '100%'}}>
                 {id.gameTime}
                     </Typography>
                     
