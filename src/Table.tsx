@@ -6,6 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+
 import {useState, useEffect} from 'react';
 
 
@@ -53,9 +55,11 @@ export default function DenseTable(props:any) {
   //setEscalacaoJogos(props)
   // console.log('props', props.data.data);
   // console.log('props>>', props.data.data.idPartida);
+  setEscalacaoJogos(props.data)
 
   let stringConvert = JSON.stringify(props.data.data, null, 4);
   console.log('stringConvert', stringConvert);
+  console.log(escalacaoJogos)
   // show all data from props divided by rows
  
   // props.data.map((jogo: any) => {
@@ -64,30 +68,33 @@ export default function DenseTable(props:any) {
 
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Jogador</TableCell>
-            <TableCell align="right">Posição</TableCell>
-            <TableCell align="right">Nº&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows2.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.position}</TableCell>
-              <TableCell align="right">{row.number}</TableCell>
-          </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Typography sx={{ width: '100%', overflowX: 'auto' }}>
+      A</Typography>
+      
+    // <TableContainer component={Paper}>
+    //   <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+    //     <TableHead>
+    //       <TableRow>
+    //         <TableCell>Jogador</TableCell>
+    //         <TableCell align="right">Posição</TableCell>
+    //         <TableCell align="right">Nº&nbsp;(g)</TableCell>
+    //       </TableRow>
+    //     </TableHead>
+    //     <TableBody>
+    //       {rows2.map((row) => (
+    //         <TableRow
+    //           key={row.name}
+    //           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+    //         >
+    //           <TableCell component="th" scope="row">
+    //             {row.name}
+    //           </TableCell>
+    //           <TableCell align="right">{row.position}</TableCell>
+    //           <TableCell align="right">{row.number}</TableCell>
+    //       </TableRow>
+    //       ))}
+    //     </TableBody>
+    //   </Table>
+    // </TableContainer>
   );
 }

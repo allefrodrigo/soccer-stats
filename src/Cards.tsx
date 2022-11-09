@@ -311,7 +311,7 @@ export default function Cards() {
     ) : (<> </>)
                   
 }
-                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: id.gameTime === 'Não Inic.' ? '#383838' : id.gameTime ==='Final' ? 'success' : '#C7070F', width: '100%'}}>
+                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: id.gameTime === 'Não Inic.' ? '#383838' : id.gameTime ==='Final' ? '#446418' : '#C7070F', width: '100%'}}>
                 {id.gameTime}
                     </Typography>
                     
@@ -325,7 +325,7 @@ export default function Cards() {
                   </Tooltip>
                   <Tooltip title="Escalação">
                     <HomeIcon  onClick={()=>{
-                      // handleEscalacao(199870) 
+                       handleEscalacao(199870) 
                     }}
          sx={{ color: grey[500] }} />
                     </Tooltip>
