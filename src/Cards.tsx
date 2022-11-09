@@ -321,8 +321,9 @@ export default function Cards() {
                     <SportsSoccerIcon sx={{ color: grey[500] }} />
                   </Tooltip>
                   <Tooltip title="Escalação">
-                    <HomeIcon onClick={()=>{
-                      handleEscalacao(199870) }}
+                    <HomeIcon  onClick={()=>{
+                      // handleEscalacao(199870) 
+                    }}
          sx={{ color: grey[500] }} />
                     </Tooltip>
 
