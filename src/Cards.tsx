@@ -32,6 +32,8 @@ import Escalacao from './Escalacao';
 import LinearProgress from '@mui/material/LinearProgress';
 import Table from './Table';
 import logoBrasileirao from './logo-brasileirao-2048.png'
+import Chip from '@mui/material/Chip';
+
 const token = '72fa6abf-408';
 const style = {
   position: 'absolute' as 'absolute',
@@ -250,7 +252,8 @@ export default function Cards() {
                   }}
                   >
                     <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: '#383838',width: '100%'}}>
-                {id.championship}
+                {id.championship}  {id.realtime?                 <Chip sx={{margin: 1} }color="error" label="Ao Vivo" size="small" />
+: <></>}
 
                 {/* <CardMedia
                   component="img"
