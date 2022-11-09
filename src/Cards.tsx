@@ -28,8 +28,11 @@ import Fade from '@mui/material/Fade';
 import Modal from '@mui/material/Modal';
 import Backdrop from '@mui/material/Backdrop';
 import HeatMap from './HeatMap';
-const token = '72fa6abf-408'
-
+import Escalacao from './Escalacao';
+import LinearProgress from '@mui/material/LinearProgress';
+import Table from './Table';
+import logoBrasileirao from './logo-brasileirao-2048.png'
+const token = '72fa6abf-408';
 const style = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -107,7 +110,13 @@ export default function Cards() {
   
   const [jogos, setJogos] = useState<Jogo[]>([]);
   const [jogosApi, setJogosApi] = useState([{'goalsHome': 0, 'goalsAway': 0, 'idChampionship': 0, 'idTeamHome': 0, 'gameTime': '', 'teamAway': '', 'championship': '', 'isoDate': '', 'hasScout': false, 'teamUrlLogoAway': '', 'realtime': false, 'teamInitialsHome': '', 'teamInitialsAway': '', 'teamUrlLogoHome': '', 'id': 0}]);
+  const [escalacaoJogos, setEscalacaoJogos] = useState({});
 
+  function handleEscalacao (numberId: number) {
+    handleOpen();
+    getEscalacao(numberId)
+
+  }
 
   let homeTeam = {
     color: "red",
@@ -138,6 +147,32 @@ export default function Cards() {
       gk: { number: 1, color: '#d3d3' }
     }
   };
+  async function getEscalacao(gameId: number) {
+    try {
+
+      const { data, status } = await axios.get<GetApiResponse>(
+        `https://footstatsapiapp.azurewebsites.net/partidas/${gameId}/escalacao`,
+        {
+          headers: {
+            Accept: 'application/json',
+            'Authorization': `Basic ${token}` 
+  
+          },
+        },
+      );
+        console.log('getEscalacao',data)
+        setEscalacaoJogos(data)
+    return data
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.log('error message: ', error.message);
+      return error.message;
+    } else {
+      console.log('unexpected error: ', error);
+      return 'An unexpected error occurred';
+    }
+  }
+  }
 
   async function getJogos() {
     try {
@@ -216,11 +251,20 @@ export default function Cards() {
                   >
                     <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: '#383838',width: '100%'}}>
                 {id.championship}
+
+                {/* <CardMedia
+                  component="img"
+                  sx={{width: '50%', height: '100%'}}
+                  image={logoBrasileirao}
+                  alt="Live from space album cover"
+                />
+                 */}
+
                     </Typography>
                     <Box  sx={{ display: 'flex', flexDirection: 'row'}}>
 
                    <Box sx={{flexDirection: 'column'}}> 
-                   <Typography  sx={{textAlign: 'center', fontSize: 12, color: 'white', fontWeight: 300}}>
+                   <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
                 {id.teamInitialsHome}
                     </Typography>
                   <CardMedia
@@ -240,7 +284,7 @@ export default function Cards() {
                
 
                   <Box sx={{flexDirection: 'column'}}> 
-                  <Typography  sx={{textAlign: 'center', color: 'white',fontSize: 12, fontWeight: 300}}>
+                  <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
                 {id.teamInitialsAway}
                     </Typography>
                     <CardMedia
@@ -254,20 +298,32 @@ export default function Cards() {
                     </Typography>
                   </Box>
                  
-            
+
                     </Box>
-             
-                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: '#383838', width: '100%'}}>
+                {
+                  id.gameTime !== 'Não Inic.' ? (
+                    <Box sx={{ width: '100%' }}>
+      <LinearProgress color='error'/>
+    </Box>
+    ) : (<> </>)
+                  
+}
+                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: id.gameTime === 'Não Inic.' ? '#383838' : '#C7070F', width: '100%'}}>
                 {id.gameTime}
                     </Typography>
+                    
                   </Card>
+                  <Typography  sx={{marginTop: 1, textAlign: 'center', color: 'black', fontSize: 12, fontWeight: 300}}>
+                {id.isoDate.split('T')[1]}
+                    </Typography>
                   <Box sx={{flexDirection: 'row', margin: 1, alignItems: 'center', justifyContent: 'center', display: 'flex', width: '100%'}}>
                   <Tooltip title="Dados Gerais">
                     <SportsSoccerIcon sx={{ color: grey[500] }} />
                   </Tooltip>
                   <Tooltip title="Escalação">
-
-                    <HomeIcon onClick={handleOpen} sx={{ color: grey[500] }} />
+                    <HomeIcon onClick={()=>{
+                      handleEscalacao(199870) }}
+         sx={{ color: grey[500] }} />
                     </Tooltip>
 
                     <Tooltip title="Heatmap">
@@ -310,13 +366,7 @@ export default function Cards() {
             {/* <Typography id="transition-modal-title" variant="h6" component="h2">
               Escalação
             </Typography> */}
-            <SoccerLineUp
-              size={'big' }
-              color={ "#5c664a" }
-              pattern={ "circles" }
-              awayTeam={awayTeam}
-              homeTeam={homeTeam}
-            />
+       <Table data={escalacaoJogos}/>
           </Box>
         </Fade>
       </Modal>
