@@ -142,7 +142,7 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Jogos Hoje', 'Copa do Mundo', 'Brasileirão', 'Internacional'].map((text, index) => (
+          {['Jogos Hoje'].map((text, index) => (
 
             <ListItem key={text} disablePadding>
 
