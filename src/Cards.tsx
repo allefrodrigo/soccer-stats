@@ -85,20 +85,20 @@ type GetUsersResponse = {
 
 
 
-function Copyright() {
+// function Copyright() {
 
   
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://github.com/allefrodrigo/">
-        Allef Schmidt
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+//   return (
+//     <Typography variant="body2" color="text.secondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://github.com/allefrodrigo/">
+//         Allef Schmidt
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 const cards = [1, 2, 3];
 
@@ -553,9 +553,9 @@ var arc2 = d3.svg.arc()
           color="text.secondary"
           component="p"
         >
-          LBR Foot Stats ⚽
+          ⚽
         </Typography>
-        <Copyright />
+        {/* <Copyright /> */}
       </Box>
       {/* End footer */}
     </ThemeProvider>
