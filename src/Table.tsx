@@ -54,9 +54,9 @@ export default function DenseTable(props:any) {
   const [escalacaoJogos, setEscalacaoJogos] = useState({});
  const  infoData = props.data.data
   // console.log reservas
-  console.log('>>>>',)
-  console.log(infoData)
-  
+  // console.log('>>>>',infoData)
+  // console.log(infoData.id)
+  // console.log(infoData.tecnicoMandante)
   //setEscalacaoJogos(props)
   // console.log('props', props.data.data);
   // console.log('props>>', props.data.data.idPartida);

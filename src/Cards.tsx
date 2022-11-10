@@ -162,8 +162,8 @@ export default function Cards() {
           },
         },
       );
-       // console.log('getEscalacao',data)
-        setEscalacaoJogos(data)
+        console.log('getEscalacao',data)
+       // setEscalacaoJogos(data)
     return data
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -312,7 +312,12 @@ export default function Cards() {
                 {
                   id.gameTime !== 'Não Inic.' ? (
                     <Box sx={{ width: '100%' }}>
-      <LinearProgress color={id.gameTime === 'Final' ? 'success' : 'error'}/>
+{ id.gameTime === 'Final' ? (
+  <LinearProgress color='success' variant="determinate" value={100} />) : (
+    <LinearProgress color='error'/>
+    )
+}
+
     </Box>
     ) : (<> </>)
                   
@@ -331,7 +336,7 @@ export default function Cards() {
                   </Tooltip>
                   <Tooltip title="Escalação">
                     <HomeIcon  onClick={()=>{
-                       handleEscalacao(199870) 
+                       handleEscalacao(id.id) 
                     }}
          sx={{ color: grey[500] }} />
                     </Tooltip>
