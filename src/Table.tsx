@@ -20,13 +20,7 @@ function createFormacao(
   return { name, position, number };
   }
 
-const rows2 = [
-  createFormacao('Cassio', 'Goleiro', 12),
-  createFormacao('Fagner', 'Lateral', 2),
-  createFormacao('Gil', 'Zagueiro', 3),
-  createFormacao('Edu Dracena', 'Zagueiro', 4),
-];
-    
+
 
 
 function createData(
@@ -39,20 +33,90 @@ function createData(
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 
 
 
 export default function DenseTable(props:any) {
-  const [escalacaoJogos, setEscalacaoJogos] = useState({});
- const  infoData = props.data.data
+  const [jogadores, setJogadores] = useState<any>([]);
+  if (props == null) {
+    return null;
+  }
+
+     let rows = [];
+    for (let i = 0; i < props.data.length; i++) {
+      // console.log(props.data[i]);
+      rows.push(props.data[i])
+      console.log(rows)
+      // rows.push(createFormacao(props.jogadores[i].nomeJogador, props.jogadores[i].posicao, props.jogadores[i].numeroDaCamisa));
+    }
+
+  
+  // console.log(rows)
+
+ 
+
+  return (
+   // Table container with infoData values
+    <TableContainer component={Paper} sx={{padding: 2, margin: 1}}>
+      <Table sx={{ minWidth: 350 }} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Player Name</TableCell>
+            <TableCell align="right">Position</TableCell>
+            <TableCell align="right">Number</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row:any) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.nomeJogador}
+              </TableCell>
+              <TableCell align="right">{row.posicao}</TableCell>
+              <TableCell align="right">{row.numeroDaCamisa}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+
+                
+      </Table>
+    </TableContainer>
+  );
+
+  
+
+
+
+// { for (let i = 0; i < infoData.length; i++) {
+//     console.log('infoData',infoData[i])
+//     // populate setEscalacaoJogos with infoData
+//   //  setEscalacaoJogos(infoData[i].formacao)
+//   }
+// } 
+ // console.log('escalacaoJogos',escalacaoJogos)
+ //loop that go through the data and create the table
+//  setEscalacaoJogos(infoData)
+//  console.log(escalacaoJogos)
+
+
+  // useEffect(() => {
+  //   const data = infoData;
+  //   console.log('data',data)
+  //   setEscalacaoJogos(prevState => ({
+  //     ...prevState,
+  //     data
+  //     }));
+
+  // }, [infoData]);
+  
+
+
+  
+  //console.log(props);
   // console.log reservas
   // console.log('>>>>',infoData)
   // console.log(infoData.id)
@@ -74,33 +138,43 @@ export default function DenseTable(props:any) {
 
 
   return (
-    <Typography sx={{ width: '100%', overflowX: 'auto' }}>
-      A</Typography>
+    
+   
       
-    // <TableContainer component={Paper}>
-    //   <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-    //     <TableHead>
-    //       <TableRow>
-    //         <TableCell>Jogador</TableCell>
-    //         <TableCell align="right">Posição</TableCell>
-    //         <TableCell align="right">Nº&nbsp;(g)</TableCell>
-    //       </TableRow>
-    //     </TableHead>
-    //     <TableBody>
-    //       {rows2.map((row) => (
-    //         <TableRow
-    //           key={row.name}
-    //           sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-    //         >
-    //           <TableCell component="th" scope="row">
-    //             {row.name}
-    //           </TableCell>
-    //           <TableCell align="right">{row.position}</TableCell>
-    //           <TableCell align="right">{row.number}</TableCell>
-    //       </TableRow>
-    //       ))}
-    //     </TableBody>
-    //   </Table>
-    // </TableContainer>
+    <TableContainer component={Paper}>
+       <Typography sx={{ width: '100%', overflowX: 'auto' }}>
+      </Typography>
+      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Jogador</TableCell>
+            <TableCell align="right">Posição</TableCell>
+            <TableCell align="right">Nº&nbsp;(g)</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+         
+          {/* {escalacaoJogos.map((row:any) => (
+            <TableRow
+            
+              key={row.name}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.position}</TableCell>
+              <TableCell align="right">{row.number}</TableCell>
+            </TableRow>
+          ))} */}
+
+                 
+          
+
+            
+
+
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
