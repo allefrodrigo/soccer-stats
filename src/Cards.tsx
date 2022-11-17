@@ -394,9 +394,9 @@ var arc2 = d3.svg.arc()
                   
                   }}
                   >
-                    <Stack direction="row" spacing={1} sx={{padding: 1}}>
+                    <Stack direction="row" spacing={1} sx={{margin: 1}}>
 
-                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white',width: '100%'}}>
+                    <Typography  sx={{ fontSize: 13, textAlign: 'center', fontWeight: '800', color: 'white',width: '100%'}}>
                 {id.championship}  
                 </Typography>
 
