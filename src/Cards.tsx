@@ -479,7 +479,7 @@ var arc2 = d3.svg.arc()
                   <Box sx={{flexDirection: 'row', margin: 1, alignItems: 'center', justifyContent: 'center', display: 'flex', width: '100%'}}>
                   <Tooltip title="Dados Gerais">
                     <SportsSoccerIcon onClick={()=>{
-                      // handleEscalacao(200018) 
+                      // handleEscalacao(199771) 
                     }}sx={{ color: grey[500] }} />
                   </Tooltip>
                   <Tooltip title="Escalação">

@@ -7,8 +7,10 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-
+import Stack from '@mui/material/Stack';
+import LooksOneIcon from '@mui/icons-material/RectangleRounded';
 import {useState, useEffect} from 'react';
+import SportsSoccerRoundedIcon from '@mui/icons-material/SportsSoccerRounded';
 
 
 function createFormacao(
@@ -84,7 +86,13 @@ export default function DenseTable(props:any) {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
+              <Stack direction="row"  sx={{padding: 1}}>
                 {row.nomeJogador}
+                {row.cartaoAmarelo.toString() === 'true' ? <LooksOneIcon sx={{ color: '#FBCA1F', transform: 'rotate(90deg)'}} /> : null}
+                {row.cartaoAmarelo2.toString() === 'true' ? <LooksOneIcon sx={{ color: '#FBCA1F', transform: 'rotate(90deg)'}} /> : null}
+                {row.cartaoVermelho.toString() === 'true' ? <LooksOneIcon sx={{ color: '#F70000', transform: 'rotate(90deg)'}} /> : null}
+                {row.gols > 0 ? <SportsSoccerRoundedIcon sx={{ color: '#1E1E1F', transform: 'rotate(90deg)'}} /> : null}
+                </Stack>
               </TableCell>
               <TableCell align="right">{row.posicao}</TableCell>
               <TableCell align="right">{row.numeroDaCamisa}</TableCell>
