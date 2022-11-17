@@ -74,9 +74,9 @@ export default function DenseTable(props:any) {
       <Table sx={{ minWidth: 350 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Player Name</TableCell>
-            <TableCell align="right">Position</TableCell>
-            <TableCell align="right">Number</TableCell>
+            <TableCell>Nome do Jogador</TableCell>
+            <TableCell align="right">Posição</TableCell>
+            <TableCell align="right">Número</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

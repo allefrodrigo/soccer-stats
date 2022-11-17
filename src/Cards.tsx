@@ -415,46 +415,60 @@ var arc2 = d3.svg.arc()
 
                     <Box  sx={{ display: 'flex', flexDirection: 'row'}}>
 
-                   <Box sx={{flexDirection: 'column'}}> 
-                   <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
+                   {/* <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
                 {id.teamInitialsHome}
-                    </Typography>
+                    </Typography> */}
+                    <Stack direction="row" spacing={1} sx={{padding: 1}}>
+                    <Box  sx={{ display: 'flex', flexDirection: 'column'}}>
+
                   <CardMedia
                     aria-label='team logo'
                     component="img"
                     image={id.teamUrlLogoHome}
                     alt="random"
-                    sx={{padding: 0.5}}
+                    sx={{padding: 0.5, width: 50, height: 50}}
                   />
+                    <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
+                {id.teamInitialsHome}
+                    </Typography>
+                    </Box>
                   
                        <Typography  sx={{textAlign: 'center',color: 'white', fontSize: 40}}>
                 {id.goalsHome === null ? 0 : id.goalsHome}
                     </Typography>
-                  </Box>
+                    </Stack>
              
              
                    
-               
-
-                  <Box sx={{flexDirection: 'column'}}> 
-                  <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
-                {id.teamInitialsAway}
+                  <Typography  sx={{flex: 1, textAlign: 'left', alignItems: 'center' ,fontSize: 12, color: '#F6F6F6'}}>
+                vs
                     </Typography>
+
+                       
+                    <Stack direction="row" spacing={1} sx={{padding: 1}}>
+
+                    <Typography  sx={{textAlign: 'center', color: 'white',fontSize: 40}}>
+                {id.goalsAway === null ? 0 : id.goalsAway}
+                    </Typography>
+                    <Box  sx={{ display: 'flex', flexDirection: 'column'}}>
+
                     <CardMedia
                     component="img"
                     aria-label='team logo'
                     image={id.teamUrlLogoAway}
                     alt="random"
-                    sx={{padding: 0.5}}
+                    sx={{padding: 0.5, width: 50, height: 50}}
 
                   />
-                       <Typography  sx={{textAlign: 'center', color: 'white',fontSize: 40}}>
-                {id.goalsAway === null ? 0 : id.goalsAway}
+                      <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
+                {id.teamInitialsAway}
                     </Typography>
+                  </Box>
+
+                    </Stack>
                   </Box>
                  
 
-                    </Box>
                 {
                   id.gameTime !== 'Não Inic.' ? (
                     <Box sx={{ width: '100%' }}>
@@ -484,7 +498,7 @@ var arc2 = d3.svg.arc()
                   </Tooltip>
                   <Tooltip title="Escalação">
                     <HomeIcon  onClick={()=>{
-                       handleEscalacao(id.id) 
+                       handleEscalacao(199771) 
                     }}
          sx={{ color: grey[500] }} />
                     </Tooltip>
