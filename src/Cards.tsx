@@ -424,6 +424,7 @@ var arc2 = d3.svg.arc()
                     component="img"
                     image={id.teamUrlLogoHome}
                     alt="random"
+                    sx={{padding: 0.5}}
                   />
                   
                        <Typography  sx={{textAlign: 'center',color: 'white', fontSize: 40}}>
@@ -444,6 +445,8 @@ var arc2 = d3.svg.arc()
                     aria-label='team logo'
                     image={id.teamUrlLogoAway}
                     alt="random"
+                    sx={{padding: 0.5}}
+
                   />
                        <Typography  sx={{textAlign: 'center', color: 'white',fontSize: 40}}>
                 {id.goalsAway === null ? 0 : id.goalsAway}
@@ -533,6 +536,9 @@ var arc2 = d3.svg.arc()
              <Typography id="transition-modal-description" sx={{ width: '100%', textAlign: 'center', fontWeight: '400', fontSize: 20, color: 'black' }}>
               Escalação
               </Typography>
+
+
+
                           <Stack direction='row'>
              
              

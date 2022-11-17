@@ -39,6 +39,16 @@ function createData(
 
 export default function DenseTable(props:any) {
   const [jogadores, setJogadores] = useState<any>([]);
+
+  if (props.data.length === 0) {
+    console.log('semdados')
+    return (
+      <Typography id="table-info" sx={{ width: '100%', textAlign: 'center', fontWeight: '400', fontSize: 25, color: 'black' }}>
+      A escalação ainda não foi definida
+      </Typography>
+    )
+  }
+
   if (props == null) {
     return null;
   }
