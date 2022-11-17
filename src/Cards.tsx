@@ -436,16 +436,14 @@ var arc2 = d3.svg.arc()
                        <Typography  sx={{textAlign: 'center',color: 'white', fontSize: 40}}>
                 {id.goalsHome === null ? 0 : id.goalsHome}
                     </Typography>
-                    </Stack>
              
              
                    
-                  <Typography  sx={{flex: 1, textAlign: 'left', alignItems: 'center' ,fontSize: 12, color: '#F6F6F6'}}>
+                  <Typography  sx={{textAlign: 'center', alignItems: 'center' ,fontSize: 12, color: '#F6F6F6'}}>
                 vs
                     </Typography>
 
                        
-                    <Stack direction="row" spacing={1} sx={{padding: 1}}>
 
                     <Typography  sx={{textAlign: 'center', color: 'white',fontSize: 40}}>
                 {id.goalsAway === null ? 0 : id.goalsAway}
