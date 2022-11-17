@@ -480,8 +480,8 @@ var arc2 = d3.svg.arc()
     ) : (<> </>)
                   
 }
-                    <Typography  sx={{textAlign: 'center', fontWeight: '800', color: 'white', background: id.gameTime === 'Não Inic.' ? '#383838' : id.gameTime ==='Final' ? '#446418' : '#C7070F', width: '100%'}}>
-                {id.gameTime}
+                    <Typography  sx={{textAlign: 'center', fontWeight: '300', color: 'white', background: id.gameTime === 'Não Inic.' ? '#383838' : id.gameTime ==='Final' ? '#446418' : '#C7070F', width: '100%'}}>
+                {id.gameTime === 'Não Inic.' ? 'Jogo não iniciado' : id.gameTime}
                     </Typography>
                     
                   </Card>
