@@ -498,7 +498,7 @@ var arc2 = d3.svg.arc()
                   </Tooltip>
                   <Tooltip title="Escalação">
                     <HomeIcon  onClick={()=>{
-                       handleEscalacao(199771) 
+                       handleEscalacao(id.id) 
                     }}
          sx={{ color: grey[500] }} />
                     </Tooltip>
