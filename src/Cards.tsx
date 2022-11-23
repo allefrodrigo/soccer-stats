@@ -319,45 +319,44 @@ var arc2 = d3.svg.arc()
 
   }
 
-  async function getJogos() {
-    try {
-      // 👇️ const data: GetUsersResponse
-      const { data, status } = await axios.get<GetApiResponse>(
-        'https://footstatsapiapp.azurewebsites.net/partidas/hoje',
-        {
-          headers: {
-            Accept: 'application/json',
-            'Authorization': `Basic ${token}` 
-  
-          },
-        },
-      );
-     
-      setJogosApi(data.data);
-      console.log(jogosApi)
-      // setJogosApi(data.data);
-      // setJogosApi(jogosApi.filter(jogo => jogo.idChampionship === 1));
-      // console.log(jogosApi);
-      //console.log();
-      // console.log(typeof(data))
-      // 👇️ "response status is: 200"
-      //setJogos(JSON.stringify(data, null, 4));
-      // console.log('response status is: ', status);
-      // setJogosApi(data)
-      return data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log('error message: ', error.message);
-        return error.message;
-      } else {
-        console.log('unexpected error: ', error);
-        return 'An unexpected error occurred';
-      }
-    }
-  }
+
   
   useEffect(() => {
+    const getJogos = async () => {
+      try {
+        // 👇️ const data: GetUsersResponse
+        const { data, status } = await axios.get<GetApiResponse>(
+          'https://footstatsapiapp.azurewebsites.net/partidas/hoje',
+          {
+            headers: {
+              Accept: 'application/json',
+              'Authorization': `Basic ${token}` 
+    
+            },
+          },
+        );
+       
+        setJogosApi(data.data);
+        console.log('Dados solicitados com sucesso');
+
+        return data;
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.log('error message: ', error.message);
+          return error.message;
+        } else {
+          console.log('unexpected error: ', error);
+          return 'An unexpected error occurred';
+        }
+      }
+    }
+
+
     getJogos();
+    setTimeout(() => {
+      getJogos();
+    }, 30000);
+   
   }, []);
 
 

@@ -12,6 +12,11 @@ import LooksOneIcon from '@mui/icons-material/RectangleRounded';
 import {useState, useEffect} from 'react';
 import SportsSoccerRoundedIcon from '@mui/icons-material/SportsSoccerRounded';
 
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
 
 function createFormacao(
   name: string,

@@ -16,6 +16,7 @@
     "react": "latest",
     "react-d3-library": "^1.1.8",
     "react-dom": "latest",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "latest",
     "react-soccer-lineup": "^0.4.3",
     "recharts": "^2.1.16",
