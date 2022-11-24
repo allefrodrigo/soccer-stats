@@ -414,7 +414,7 @@ var arc2 = d3.svg.arc()
                
 
                 
-                {id.realtime?                 <Chip sx={{ fontSize: 10, fontWeight: 300 } }color="error" label="Ao Vivo" size="small" />
+                {id.realtime?                 <Chip sx={{ fontSize: 10, fontWeight: 300, marginTop: 1 } }color="error" label="Ao Vivo" size="small" />
 : <></>}
 
                 {/* <CardMedia
