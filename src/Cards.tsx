@@ -32,6 +32,8 @@ import Escalacao from './Escalacao';
 import LinearProgress from '@mui/material/LinearProgress';
 import Table from './Table';
 import Confetti from 'react-confetti'
+import { css, keyframes } from '@emotion/react'
+import { styled } from "@mui/material";
 
 import logoBrasileirao from './logo-catar.png'
 import Chip from '@mui/material/Chip';
@@ -45,6 +47,64 @@ const style = {
   bgcolor: 'background.paper',
   boxShadow: 24,
 };
+
+
+const Keyframes = styled("div")({
+  fontSize: 10, fontWeight: 300, marginTop: 5, color: 'white', backgroundColor: 'red', borderRadius: 100, padding: 5,
+  "@keyframes pulse": {
+        from: {
+      opacity: 1,
+      transform: "scale(0.95)",
+      boxShadow: "0 0 0 10px rgba(0, 0, 0, 0)"
+
+    },
+    to: {
+      opacity: 0.96,
+      transform: "scale(1)",
+      boxShadow: "0 0 0 0 rgba(165, 42, 42, 0.7)"
+    }
+  },
+  animation: "pulse 1.5s infinite",
+});
+
+
+
+
+const bounce = keyframes`
+  from, 20%, 53%, 80%, to {
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    transform: translate3d(0,-4px,0);
+  }
+`
+
+const live = keyframes`
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+`
+
 
 type Jogo = {
   goalsHome: number,
@@ -397,11 +457,13 @@ var arc2 = d3.svg.arc()
 
 
               <Grid item key={index} xs={12} sm={6} md={4} >
+                <Stack spacing={1} direction="row" alignItems="center" justifyContent="center">
                      <Typography  sx={{ fontSize: 13, textAlign: 'center', fontWeight: '800', color: 'black',width: '100%'}}>
                 {id.championship}  
-                {id.championship === 'Copa do Mundo 2022' ? '🏆' : null}
+                {id.championship === 'Copa do Mundo 2022' ? '🏆' : null} 
                 </Typography>
-           
+                {id.realtime ? <Keyframes></Keyframes> : null}
+</Stack>
                   <Card 
                     sx={{ display: 'flex', flexDirection: 'column ', alignItems:'center', background: '#242424', 
                     '&:hover': {
@@ -410,12 +472,9 @@ var arc2 = d3.svg.arc()
                   
                   }}
                   >
-
                
-
                 
-                {id.realtime?                 <Chip sx={{ fontSize: 10, fontWeight: 300, marginTop: 1 } }color="error" label="Ao Vivo" size="small" />
-: <></>}
+          
 
                 {/* <CardMedia
                   component="img"
