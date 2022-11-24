@@ -319,45 +319,51 @@ var arc2 = d3.svg.arc()
 
   }
 
-
+  const getJogos = async () => {
+    try {
+      // 👇️ const data: GetUsersResponse
+      const { data, status } = await axios.get<GetApiResponse>(
+        'https://footstatsapiapp.azurewebsites.net/partidas/hoje',
+        {
+          headers: {
+            Accept: 'application/json',
+            'Authorization': `Basic ${token}` 
   
-  useEffect(() => {
-    const getJogos = async () => {
-      try {
-        // 👇️ const data: GetUsersResponse
-        const { data, status } = await axios.get<GetApiResponse>(
-          'https://footstatsapiapp.azurewebsites.net/partidas/hoje',
-          {
-            headers: {
-              Accept: 'application/json',
-              'Authorization': `Basic ${token}` 
-    
-            },
           },
-        );
-       
-        setJogosApi(data.data);
-        console.log('Dados solicitados com sucesso');
+        },
+      );
+     
+      setJogosApi(data.data);
+      console.log('Dados solicitados com sucesso');
 
-        return data;
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          console.log('error message: ', error.message);
-          return error.message;
-        } else {
-          console.log('unexpected error: ', error);
-          return 'An unexpected error occurred';
-        }
+      return data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log('error message: ', error.message);
+        return error.message;
+      } else {
+        console.log('unexpected error: ', error);
+        return 'An unexpected error occurred';
       }
     }
-
-
+  }
+  useEffect(() => {
     getJogos();
-    setTimeout(() => {
+
+  }, []);
+
+  useEffect(() => {
+
+  }, []);
+
+  // getJogos data from API every 30 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
       getJogos();
     }, 30000);
-   
+    return () => clearInterval(interval);
   }, []);
+
 
 
   return (
