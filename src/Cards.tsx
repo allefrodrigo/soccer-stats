@@ -31,7 +31,9 @@ import HeatMap from './HeatMap';
 import Escalacao from './Escalacao';
 import LinearProgress from '@mui/material/LinearProgress';
 import Table from './Table';
-import logoBrasileirao from './logo-brasileirao-2048.png'
+import Confetti from 'react-confetti'
+
+import logoBrasileirao from './logo-catar.png'
 import Chip from '@mui/material/Chip';
 import {d3} from 'react-d3-library'
 const token = '72fa6abf-408';
@@ -385,6 +387,7 @@ var arc2 = d3.svg.arc()
 {/*  create a container that all itens are in the center     */}
       <Container maxWidth="lg" >
           {/* End hero unit */}
+          
           <Grid container spacing={5}
           direction="row"
           alignItems="center"
@@ -394,7 +397,11 @@ var arc2 = d3.svg.arc()
 
 
               <Grid item key={index} xs={12} sm={6} md={4} >
-                
+                     <Typography  sx={{ fontSize: 13, textAlign: 'center', fontWeight: '800', color: 'black',width: '100%'}}>
+                {id.championship}  
+                {id.championship === 'Copa do Mundo 2022' ? '🏆' : null}
+                </Typography>
+           
                   <Card 
                     sx={{ display: 'flex', flexDirection: 'column ', alignItems:'center', background: '#242424', 
                     '&:hover': {
@@ -403,16 +410,12 @@ var arc2 = d3.svg.arc()
                   
                   }}
                   >
-                    <Stack direction="row" spacing={1} >
 
-                    <Typography  sx={{ fontSize: 13, textAlign: 'center', fontWeight: '800', color: 'white',width: '100%'}}>
-                {id.championship}  
-                </Typography>
+               
 
                 
                 {id.realtime?                 <Chip sx={{ fontSize: 10, fontWeight: 300 } }color="error" label="Ao Vivo" size="small" />
 : <></>}
-</Stack>
 
                 {/* <CardMedia
                   component="img"
@@ -497,7 +500,7 @@ var arc2 = d3.svg.arc()
                   <Typography  sx={{marginTop: 1, textAlign: 'center', color: 'black', fontSize: 12, fontWeight: 300}}>
                 {id.isoDate.split('T')[1]}
                     </Typography>
-                  <Box sx={{flexDirection: 'row', margin: 1, alignItems: 'center', justifyContent: 'center', display: 'flex', width: '100%'}}>
+                  {/* <Box sx={{flexDirection: 'row', margin: 1, alignItems: 'center', justifyContent: 'center', display: 'flex', width: '100%'}}>
                   <Tooltip title="Dados Gerais">
                     <SportsSoccerIcon onClick={()=>{
                       // handleEscalacao(199771) 
@@ -522,7 +525,7 @@ var arc2 = d3.svg.arc()
                     }} sx={{ color: grey[500] }} />
                     </Tooltip>
 
-                    </Box>
+                    </Box> */}
                   {/* <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
                       Heading
