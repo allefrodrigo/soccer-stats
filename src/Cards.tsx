@@ -109,7 +109,8 @@ export default function Cards() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  
+  const [dataUltima, setDataUltima] = React.useState(new Date());
+
   const [jogos, setJogos] = useState<Jogo[]>([]);
   const [jogosApi, setJogosApi] = useState([{'goalsHome': 0, 'goalsAway': 0, 'idChampionship': 0, 'idTeamHome': 0, 'gameTime': '', 'teamAway': '', 'championship': '', 'isoDate': '', 'hasScout': false, 'teamUrlLogoAway': '', 'realtime': false, 'teamInitialsHome': '', 'teamInitialsAway': '', 'teamUrlLogoHome': '', 'id': 0}]);
   const [escalacaoJogos, setEscalacaoJogos] = useState({});
@@ -335,7 +336,9 @@ var arc2 = d3.svg.arc()
      
       setJogosApi(data.data);
       console.log('Dados solicitados com sucesso');
-
+      const date = new Date();
+      setDataUltima(date)
+      console.log(dataUltima)
       return data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -400,7 +403,7 @@ var arc2 = d3.svg.arc()
                   
                   }}
                   >
-                    <Stack direction="row" spacing={1} sx={{margin: 1}}>
+                    <Stack direction="row" spacing={1} >
 
                     <Typography  sx={{ fontSize: 13, textAlign: 'center', fontWeight: '800', color: 'white',width: '100%'}}>
                 {id.championship}  
@@ -577,7 +580,7 @@ var arc2 = d3.svg.arc()
           color="text.secondary"
           component="p"
         >
-          ⚽
+          Útilma atualização: {(dataUltima.toString()).split('GMT')[0]} ⚽
         </Typography>
         {/* <Copyright /> */}
       </Box>
