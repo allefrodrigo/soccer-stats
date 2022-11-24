@@ -50,16 +50,16 @@ const style = {
 
 
 const Keyframes = styled("div")({
-  fontSize: 10, fontWeight: 300, marginTop: 5, color: 'white', backgroundColor: 'red', borderRadius: 100, padding: 5,
+  fontSize: 10, fontWeight: 300, color: 'white', backgroundColor: 'red', borderRadius: 100, margin: 2, height: '10px',	width: '10px', position: 'absolute',
   "@keyframes pulse": {
         from: {
       opacity: 1,
       transform: "scale(0.95)",
-      boxShadow: "0 0 0 10px rgba(0, 0, 0, 0)"
+      boxShadow: "0 0 0 5px rgba(0, 0, 0, 0)"
 
     },
     to: {
-      opacity: 0.96,
+      opacity: 0.95,
       transform: "scale(1)",
       boxShadow: "0 0 0 0 rgba(165, 42, 42, 0.7)"
     }
@@ -457,15 +457,12 @@ var arc2 = d3.svg.arc()
 
 
               <Grid item key={index} xs={12} sm={6} md={4} >
-                <Stack spacing={1} direction="row" alignItems="center" justifyContent="center">
-                     <Typography  sx={{ fontSize: 13, textAlign: 'center', fontWeight: '800', color: 'black',width: '100%'}}>
-                {id.championship}  
-                {id.championship === 'Copa do Mundo 2022' ? '🏆' : null} 
-                </Typography>
+                   
                 {id.realtime ? <Keyframes></Keyframes> : null}
-</Stack>
                   <Card 
-                    sx={{ display: 'flex', flexDirection: 'column ', alignItems:'center', background: '#242424', 
+  onClick={()=>{
+    handleEscalacao(id.id) 
+  }}                    sx={{ display: 'flex', flexDirection: 'column ', alignItems:'center', background: '#242424', 
                     '&:hover': {
                       transform: 'scale(1.05)',
                     }
@@ -484,11 +481,16 @@ var arc2 = d3.svg.arc()
                 />
                  */}
 
+<Typography  sx={{ fontSize: 13, textAlign: 'center', fontWeight: '800', color: 'white',width: '100%'}}>
+                {id.championship}  
+                {id.championship === 'Copa do Mundo 2022' ? '🏆' : null} 
+                </Typography>
                     <Box  sx={{ display: 'flex', flexDirection: 'row'}}>
 
                    {/* <Typography  sx={{textAlign: 'center', marginTop: 1, color: 'white',fontSize: 12, fontWeight: 300}}>
                 {id.teamInitialsHome}
                     </Typography> */}
+                    
                     <Stack direction="row" spacing={1} sx={{padding: 1}}>
                     <Box  sx={{ display: 'flex', flexDirection: 'column'}}>
 
@@ -633,7 +635,7 @@ var arc2 = d3.svg.arc()
         </Fade>
       </Modal>
         </Container>
-=        </Box>
+        </Box>
       <Box sx={{ bgcolor: 'background.paper'}} component="footer">
 
         <Typography
