@@ -388,9 +388,10 @@ var arc2 = d3.svg.arc()
           justifyContent="center"
           style={{ maxWidth: 'lg' }}>
             {jogosApi.map((id, index) => (
-              <Grid key={index} item xs={12} sm={6} md={3}>
+
+
+              <Grid item key={index} xs={12} sm={6} md={4} >
                 
-               
                   <Card 
                     sx={{ display: 'flex', flexDirection: 'column ', alignItems:'center', background: '#242424', 
                     '&:hover': {
