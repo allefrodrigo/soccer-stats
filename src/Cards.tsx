@@ -34,7 +34,7 @@ import Table from './Table';
 import Confetti from 'react-confetti'
 import { css, keyframes } from '@emotion/react'
 import { styled } from "@mui/material";
-
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import logoBrasileirao from './logo-catar.png'
 import Chip from '@mui/material/Chip';
 import {d3} from 'react-d3-library'
@@ -460,9 +460,7 @@ var arc2 = d3.svg.arc()
                    
                 {id.realtime ? <Keyframes></Keyframes> : null}
                   <Card 
-  onClick={()=>{
-    handleEscalacao(id.id) 
-  }}                    sx={{ display: 'flex', flexDirection: 'column ', alignItems:'center', background: '#242424', 
+                      sx={{ display: 'flex', flexDirection: 'column ', alignItems:'center', background: '#242424', 
                     '&:hover': {
                       transform: 'scale(1.05)',
                     }
@@ -537,8 +535,15 @@ var arc2 = d3.svg.arc()
                   </Box>
 
                     </Stack>
+                    
                   </Box>
-                 
+   
+
+                  <Typography  sx={{textAlign: 'center', color: 'white',fontSize: 10, fontWeight: 300}} onClick={()=>{
+    handleEscalacao(id.id) 
+  }}>
+                Ver detalhes
+                    </Typography> 
 
                 {
                   id.gameTime !== 'Não Inic.' ? (
@@ -558,9 +563,11 @@ var arc2 = d3.svg.arc()
                     </Typography>
                     
                   </Card>
+        
                   <Typography  sx={{marginTop: 1, textAlign: 'center', color: 'black', fontSize: 12, fontWeight: 300}}>
                 {id.isoDate.split('T')[1]}
                     </Typography>
+                    
                   {/* <Box sx={{flexDirection: 'row', margin: 1, alignItems: 'center', justifyContent: 'center', display: 'flex', width: '100%'}}>
                   <Tooltip title="Dados Gerais">
                     <SportsSoccerIcon onClick={()=>{
@@ -644,7 +651,7 @@ var arc2 = d3.svg.arc()
           color="text.secondary"
           component="p"
         >
-          Útilma atualização: {(dataUltima.toString()).split('GMT')[0]} ⚽
+          Last Sync: {(dataUltima.toString()).split('GMT')[0]} ⚽
         </Typography>
         {/* <Copyright /> */}
       </Box>
