@@ -229,13 +229,27 @@ export default function Cards() {
         // console.log('getEscalacao',data.data)
         // console.log('data.data',data.data.tecnicoMandante)
         // console.log('data.titulo',data.data.titular.mandante)
-        const mandante = data.data.titular.mandante
-        const visitante = data.data.titular.visitante
+        const titular_mandante = data.data.titular.mandante
+        const reserva_mandante = data.data.reserva.mandante
+
+        const reserva_visitante = data.data.reserva.visitante
+        const titular_visitante = data.data.titular.visitante
+        const mandante = {
+          'titular': titular_mandante,
+          'reserva': reserva_mandante
+        }
+
+        const visitante = {
+          'titular': titular_visitante,
+          'reserva': reserva_visitante
+        }
+
 
         setEscalacaoJogos(mandante)
         setEscalacaoJogosVisita(visitante)
 
        // setEscalacaoJogos(data)
+       //console.log(mandante)
     return data
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -425,7 +439,7 @@ var arc2 = d3.svg.arc()
   useEffect(() => {
     const interval = setInterval(() => {
       getJogos();
-    }, 30000);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -607,7 +621,7 @@ var arc2 = d3.svg.arc()
               </Grid>
             ))}
           </Grid>
-          <Modal
+          {/* <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -619,28 +633,28 @@ var arc2 = d3.svg.arc()
           timeout: 500,
         }}
       >
-        <Fade in={open}>
-          <Box sx={style}>
+        <Fade in={open}> */}
+   {/* <Box sx={style}> */}
             {/* <HeatMap> </HeatMap> */}
             {/* <Typography id="transition-modal-title" variant="h6" component="h2">
               Escalação
             </Typography> */}
-             <Typography id="transition-modal-description" sx={{ width: '100%', textAlign: 'center', fontWeight: '400', fontSize: 20, color: 'black' }}>
+             {/* <Typography id="transition-modal-description" sx={{ width: '100%', textAlign: 'center', fontWeight: '400', fontSize: 20, color: 'black' }}>
               Escalação
-              </Typography>
+              </Typography> */}
 
 
-
+{/* 
                           <Stack direction='row'>
              
              
               <Table data={escalacaoJogos}/>
-
        <Table  data={escalacaoJogosVisita}/>
-</Stack>
-          </Box>
-        </Fade>
-      </Modal>
+
+</Stack> */}
+          {/* </Box> */}
+        {/* </Fade>
+      </Modal> */}
         </Container>
         </Box>
       <Box sx={{ bgcolor: 'background.paper'}} component="footer">
