@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
 import SoccerHeatmap from "./Heatmap"; // Importe o componente SoccerHeatmap
+import SoccerDialog from "./SoccerDialog";
 
 interface GameCardProps {
   championship: string;
@@ -109,29 +110,18 @@ export default function GameCard({
       </div>
 
       {/* Link para abrir o Dialog */}
-      <div className="text-center mt-4">
+      {/* <div className="text-center mt-4">
         <button
           onClick={handleOpen}
           className="text-blue-500 hover:underline text-sm font-semibold"
         >
           Ver Heat Map
         </button>
-      </div>
+      </div> */}
 
       {/* Dialog com o heatmap */}
-      <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
-        <DialogTitle>Heatmap do Jogo</DialogTitle>
-        <DialogContent>
-        <SoccerHeatmap
+      {/* <SoccerDialog open={open} onClose={handleClose} /> */}
 
-  />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Fechar
-          </Button>
-        </DialogActions>
-      </Dialog>
     </div>
   );
 }
