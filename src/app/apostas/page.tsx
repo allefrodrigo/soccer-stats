@@ -24,28 +24,25 @@ const Apostas: React.FC = () => {
       const response = await import('./data/bets.json');
       const betsData = (response.default || response) as Bet[];
 
-      // Mapeia e ordena os dados
       const parsedBets: Bet[] = betsData
         .map((bet) => ({
           ...bet,
           status: bet.status as 'Perdida' | 'Ganhou' | 'Cash Out' | 'Andamento',
         }))
         .sort((a, b) => {
-          // Converte a data para o formato YYYY/MM/DD para facilitar a comparação
           const dateA = new Date(a.date.split('/').reverse().join('-'));
           const dateB = new Date(b.date.split('/').reverse().join('-'));
-          return dateB.getTime() - dateA.getTime(); // Ordena da mais recente para a mais antiga
+          return dateB.getTime() - dateA.getTime();
         });
 
       setBets(parsedBets);
-      setFilteredBets(parsedBets); // Inicialmente, mostra todas as apostas
+      setFilteredBets(parsedBets);
     };
 
     fetchData();
   }, []);
 
   useEffect(() => {
-    // Filtra as apostas com base no filtro selecionado
     const filterBets = () => {
       switch (filter) {
         case 'Todos':
@@ -61,9 +58,7 @@ const Apostas: React.FC = () => {
           setFilteredBets(bets.filter((bet) => bet.status === 'Cash Out'));
           break;
         case 'Ganhou + Cash Out':
-          setFilteredBets(
-            bets.filter((bet) => bet.status === 'Ganhou' || bet.status === 'Cash Out')
-          );
+          setFilteredBets(bets.filter((bet) => bet.status === 'Ganhou' || bet.status === 'Cash Out'));
           break;
         default:
           setFilteredBets(bets);
@@ -74,12 +69,8 @@ const Apostas: React.FC = () => {
     filterBets();
   }, [filter, bets]);
 
-  // Cálculo do resumo
-  const totalGain = bets.reduce((total, bet) => total + bet.gain, 0); // Soma todos os ganhos
-  const totalLost = bets
-    .filter((bet) => bet.status === 'Perdida') // Soma todas as perdas
-    .reduce((total, bet) => total + bet.betAmount, 0);
-  const netProfit = totalGain - totalLost; // Lucro líquido: ganhos - perdas
+  const totalGain = bets.reduce((total, bet) => total + bet.gain, 0);
+  const totalLost = bets.filter((bet) => bet.status === 'Perdida').reduce((total, bet) => total + bet.betAmount, 0);
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
@@ -88,12 +79,12 @@ const Apostas: React.FC = () => {
           LBR BETS
         </h1>
 
-        {/* Filtros */}
-        <div className="flex justify-center mb-6">
+        {/* Filtros Responsivos */}
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
           {['Todos', 'Ganhou', 'Perdida', 'Cash Out', 'Ganhou + Cash Out'].map((option) => (
             <button
               key={option}
-              className={`px-4 py-2 mx-2 rounded ${
+              className={`px-4 py-2 rounded w-full sm:w-auto ${
                 filter === option
                   ? 'bg-blue-500 text-white'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
@@ -105,20 +96,20 @@ const Apostas: React.FC = () => {
           ))}
         </div>
 
-        {/* Resumo */}
+        {/* Resumo Responsivo */}
         <div className="mb-6">
           <SummaryCard
-            totalBetAmount={bets.reduce((total, bet) => total + bet.betAmount, 0)} // Soma todos os valores apostados
-            totalProfit={totalGain} // Total de ganhos
-            totalLost={totalLost} // Total de perdas
+            totalBetAmount={bets.reduce((total, bet) => total + bet.betAmount, 0)}
+            totalProfit={totalGain}
+            totalLost={totalLost}
           />
         </div>
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">
           Apostas Liquidadas
         </h1>
 
-        {/* Lista de Apostas */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Lista de Apostas Responsiva */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredBets.map((bet) => (
             <BetCard
               key={bet.id}

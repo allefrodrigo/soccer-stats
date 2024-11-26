@@ -20,9 +20,9 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
   };
 
   return (
-    <div className="w-full bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg overflow-hidden p-6 flex">
+    <div className="w-full bg-gray-100 dark:bg-gray-800 shadow-md rounded-lg overflow-hidden p-6 flex flex-col lg:flex-row">
       {/* Resumo de Apostas */}
-      <div className="flex-1 pr-4">
+      <div className="flex-1 lg:pr-4 mb-4 lg:mb-0">
         <div className="mb-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 px-2 py-1">
             Valor real da carteira somente após conclusão de todas apostas em andamento.
@@ -67,11 +67,12 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
         </div>
       </div>
 
-      {/* Separador vertical */}
-      <div className="w-px bg-gray-300 dark:bg-gray-700"></div>
+      {/* Separador responsivo */}
+      <div className="hidden lg:block w-px bg-gray-300 dark:bg-gray-700"></div>
+      <div className="block lg:hidden h-px bg-gray-300 dark:bg-gray-700 my-4"></div>
 
       {/* Apostas em Andamento */}
-      <div className="flex-1 pl-4">
+      <div className="flex-1 lg:pl-4">
         <OpenBetsCard />
       </div>
     </div>
