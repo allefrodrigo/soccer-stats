@@ -19,26 +19,26 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
   };
 
   return (
-    <div className="max-w-md w-full bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden p-4">
+    <div className="max-w-md w-full bg-gray-100 shadow-md rounded-lg overflow-hidden p-4">
       {/* Tag informativa */}
       <div className="mb-4">
-        <p className="text-xs text-yellow-600 bg-yellow-100 px-2 py-1 rounded">
+        <p className="text-xs text-yellow-700 bg-yellow-200 px-2 py-1 rounded">
           Card em construção — Dados contidos nele podem não refletir a realidade.
         </p>
       </div>
 
       <div className="flex items-center gap-4 mb-4">
-        <div className="bg-orange-100 p-2 rounded-full">
-          <span className="text-orange-600 text-xl font-bold">💰</span>
+        <div className="bg-gray-300 p-2 rounded-full">
+          <span className="text-black text-xl font-bold">💰</span>
         </div>
-        <h2 className="text-lg font-bold text-gray-800 dark:text-gray-100">
+        <h2 className="text-lg font-bold text-black">
           Resumo de Apostas
         </h2>
       </div>
-      <div className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+      <div className="text-2xl font-bold text-black mb-4">
         {formatCurrency(netProfit)}
       </div>
-      <div className="flex justify-between text-sm text-gray-700 dark:text-gray-300">
+      <div className="flex justify-between text-sm text-black">
         <div>
           <p>Apostas</p>
           <p className="font-bold">{formatCurrency(totalBetAmount)}</p>
