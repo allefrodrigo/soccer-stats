@@ -72,8 +72,10 @@
         "id": 6574203221,
         "date": "24/11/2024",
         "match": "7-seleções",
-        "betAmount": 10.0,
+        "betAmount": 5.0,
+        "isFreeBet": true,
         "status": "Perdida",
+
         "gain": 0.0,
         "details": "Ceará, Mais de 0.5, Mais de 1.5, Mais de 1.5, Real Madrid, Manchester United, Napoli"
       },

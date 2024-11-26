@@ -70,7 +70,9 @@ const Apostas: React.FC = () => {
   }, [filter, bets]);
 
   const totalGain = bets.reduce((total, bet) => total + bet.gain, 0);
-  const totalLost = bets.filter((bet) => bet.status === 'Perdida').reduce((total, bet) => total + bet.betAmount, 0);
+  const totalLost = bets
+    .filter((bet) => bet.status === 'Perdida' && !bet.isFreeBet) // Exclui freeBets
+    .reduce((total, bet) => total + bet.betAmount, 0);
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
