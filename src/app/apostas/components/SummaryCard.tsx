@@ -10,7 +10,7 @@ interface SummaryCardProps {
 }
 
 const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, totalLost }) => {
-  const netProfit = totalProfit - totalLost; // Lucro líquido: ganhos - perdas
+  const netProfit = totalProfit - totalBetAmount; // Lucro líquido: ganhos - perdas
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -51,7 +51,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
           </div>
           <div>
             <p>Total Perdido</p>
-            <p className="font-bold text-red-500">{formatCurrency(totalLost)}</p>
+            <p className="font-bold text-red-500">{formatCurrency(totalBetAmount)}</p>
           </div>
         </div>
 
