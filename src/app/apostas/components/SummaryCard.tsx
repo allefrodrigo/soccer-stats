@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import OpenBetsCard from './OpenBets';
 
 interface SummaryCardProps {
   totalBetAmount: number; // Total de valor apostado (sem contar free bets)
@@ -20,9 +21,8 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
 
   return (
     <div className="max-w-md w-full bg-gray-100 shadow-md rounded-lg overflow-hidden p-4">
-      {/* Tag informativa */}
       <div className="mb-4">
-        <p className="text-xs text-yellow-700 bg-yellow-200 px-2 py-1 rounded">
+        <p className="text-xs text-black px-2 py-1">
           Card em construção — Dados contidos nele podem não refletir a realidade.
         </p>
       </div>
@@ -38,7 +38,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
       <div className="text-2xl font-bold text-black mb-4">
         {formatCurrency(netProfit)}
       </div>
-      <div className="flex justify-between text-sm text-black">
+      <div className="flex justify-between text-sm text-black mb-4">
         <div>
           <p>Apostas</p>
           <p className="font-bold">{formatCurrency(totalBetAmount)}</p>
@@ -52,6 +52,9 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
           <p className="font-bold">{formatCurrency(totalLost)}</p>
         </div>
       </div>
+
+      {/* Apostas em Andamento */}
+      <OpenBetsCard />
     </div>
   );
 };

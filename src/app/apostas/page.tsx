@@ -58,7 +58,7 @@ const Apostas: React.FC = () => {
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">
-          Apostas Liquidadas
+          LBR BETS
         </h1>
 
         {/* Resumo */}
