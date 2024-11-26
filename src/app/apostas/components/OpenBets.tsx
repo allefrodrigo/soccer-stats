@@ -15,11 +15,15 @@ const OpenBetsCard: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full rounded-lg p-4">
-      <h3 className="text-lg font-bold text-black mb-4">Apostas em Andamento</h3>
+    <div>
+      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+        Apostas em Andamento
+      </h3>
       <div className="flex flex-wrap gap-2">
         {openBets.length === 0 ? (
-          <p className="text-sm text-gray-700">Nenhuma aposta em andamento no momento.</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            Nenhuma aposta em andamento no momento.
+          </p>
         ) : (
           openBets.map((id) => (
             <a
@@ -27,7 +31,7 @@ const OpenBetsCard: React.FC = () => {
               href={`https://br.betano.com/mybets/${id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 bg-black text-white text-sm font-semibold rounded-full shadow hover:bg-gray-800 transition"
+              className="px-3 py-1 bg-blue-500 dark:bg-blue-600 text-white text-sm font-semibold rounded-full shadow hover:bg-blue-600 dark:hover:bg-blue-700 transition"
             >
               {id}
             </a>
