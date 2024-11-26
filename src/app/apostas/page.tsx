@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import BetCard from './components/BetCard';
+import SummaryCard from './components/SummaryCard';
 
 interface Bet {
   id: number;
@@ -19,15 +20,7 @@ const Apostas: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await import('./data/bets.json');
-      const betsData = (response.default || response) as {
-        id: number;
-        date: string;
-        match: string;
-        betAmount: number;
-        status: string;
-        gain: number;
-        isFreeBet?: boolean;
-      }[];
+      const betsData = (response.default || response) as Bet[];
 
       // Mapeia e ordena os dados
       const parsedBets: Bet[] = betsData
@@ -48,12 +41,26 @@ const Apostas: React.FC = () => {
     fetchData();
   }, []);
 
+  // Cálculo do resumo
+  const totalBetAmount = bets
+    .filter((bet) => !bet.isFreeBet) // Exclui free bets
+    .reduce((total, bet) => total + bet.betAmount, 0);
+
+  const totalGain = bets.reduce((total, bet) => total + bet.gain, 0);
+
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">
           Apostas Liquidadas
         </h1>
+
+        {/* Resumo */}
+        <div className="mb-6">
+          <SummaryCard totalBetAmount={totalBetAmount} totalGain={totalGain} />
+        </div>
+
+        {/* Lista de Apostas */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {bets.map((bet) => (
             <BetCard
