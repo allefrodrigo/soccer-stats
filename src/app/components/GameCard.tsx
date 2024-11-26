@@ -1,4 +1,9 @@
+'use client';
+
 import Image from "next/image";
+import { useState } from "react";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
+import SoccerHeatmap from "./Heatmap"; // Importe o componente SoccerHeatmap
 
 interface GameCardProps {
   championship: string;
@@ -10,6 +15,11 @@ interface GameCardProps {
   teamUrlLogoHome: string;
   teamUrlLogoAway: string;
   realtime?: boolean;
+  heatmapProps: {
+    idChampionship: number;
+    idHome: number;
+    idMatch: number;
+  }; // Novas props para o heatmap
 }
 
 export default function GameCard({
@@ -22,9 +32,30 @@ export default function GameCard({
   teamUrlLogoHome,
   teamUrlLogoAway,
   realtime = false,
+  heatmapProps,
 }: GameCardProps) {
+  const [open, setOpen] = useState(false);
+
+  // Determinar o lado vencedor
+  const isHomeWinning =
+    goalsHome !== null && goalsAway !== null && goalsHome > goalsAway;
+  const isAwayWinning =
+    goalsHome !== null && goalsAway !== null && goalsAway > goalsHome;
+
+  // Funções para abrir e fechar o Dialog
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border border-gray-200 dark:border-gray-700">
+    <div
+      className={`rounded-lg shadow-md p-4 ${
+        isHomeWinning
+          ? "border-l-4 border-l-green-500"
+          : isAwayWinning
+          ? "border-r-4 border-r-green-500"
+          : "border-transparent"
+      } bg-white dark:bg-gray-800`}
+    >
       {/* Campeonato */}
       <h3 className="text-sm font-bold text-center text-gray-700 dark:text-gray-300 mb-2">
         {championship}
@@ -76,6 +107,31 @@ export default function GameCard({
           </span>
         </div>
       </div>
+
+      {/* Link para abrir o Dialog */}
+      <div className="text-center mt-4">
+        <button
+          onClick={handleOpen}
+          className="text-blue-500 hover:underline text-sm font-semibold"
+        >
+          Ver Heat Map
+        </button>
+      </div>
+
+      {/* Dialog com o heatmap */}
+      <Dialog open={open} onClose={handleClose} maxWidth="lg" fullWidth>
+        <DialogTitle>Heatmap do Jogo</DialogTitle>
+        <DialogContent>
+        <SoccerHeatmap
+
+  />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Fechar
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

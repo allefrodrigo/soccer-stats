@@ -1,5 +1,42 @@
 [
-    {
+    
+  {
+    "id": 6582711986,
+    "date": "26/11/2024 - 09:15",
+    "match": "4-seleções",
+    "betAmount": 10.00,
+    "status": "Perdida",
+    "gain": 0.00,
+    "details": "Barcelona, Manchester City, Bayer Leverkusen, Palmeiras"
+  },
+  {
+    "id": 6582707081,
+    "date": "26/11/2024 - 09:13",
+    "match": "Dupla",
+    "betAmount": 15.00,
+    "status": "Perdida",
+    "gain": 0.00,
+    "details": "Atlético de Madrid, 2/2"
+  },
+  {
+    "id": 6582710000,
+    "date": "26/11/2024 - 09:14",
+    "match": "6-seleções",
+    "betAmount": 5.00,
+    "status": "Ganhou",
+    "gain": 44.93,
+    "details": "Mais de 0.5, Atlético de Madrid, AC Milan, Bayern Munique, Inter de Milão, Atalanta"
+  },
+  {
+    "id": 6582708558,
+    "date": "26/11/2024 - 09:13",
+    "match": "Dupla",
+    "betAmount": 15.00,
+    "status": "Perdida",
+    "gain": 0.00,
+    "details": "CA Bayern Munique, CA Inter de Milão"
+  },
+  {
       "id": 1,
       "date": "25/11/2024",
       "match": "CA 1+",
