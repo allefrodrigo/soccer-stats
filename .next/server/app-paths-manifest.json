@@ -1,1 +1,4 @@
-{}
+{
+  "/apostas/page": "app/apostas/page.js",
+  "/page": "app/page.js"
+}

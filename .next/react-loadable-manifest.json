@@ -1,1 +1,8 @@
-{}
+{
+  "app/apostas/page.tsx -> ./data/bets.json": {
+    "id": "app/apostas/page.tsx -> ./data/bets.json",
+    "files": [
+      "static/chunks/_app-pages-browser_src_app_apostas_data_bets_json.js"
+    ]
+  }
+}

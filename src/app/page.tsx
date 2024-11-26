@@ -1,38 +1,59 @@
-"use client";
-
-import { useEffect, useState } from "react";
+'use client';
+import { useEffect, useState, useRef } from "react";
 import GameCard from "@/app/components/GameCard";
-import HiddenGameCard from "@/app/components/HiddenGameCard";
 import { fetchGames } from "@/app/lib/fetchGames";
-import { EyeOff } from "lucide-react"; // Ícone de ocultar
+
 
 export default function Home() {
   const [games, setGames] = useState<any[]>([]);
-  const [hiddenGames, setHiddenGames] = useState<any[]>([]); // Jogos ocultados
   const [loading, setLoading] = useState(true);
+  const retryTimeout = useRef<NodeJS.Timeout | null>(null);
+  const intervalId = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    async function loadGames() {
-      const data = await fetchGames();
-      setGames(data);
-      setLoading(false);
-    }
+    // Função para carregar os jogos
+    const loadGames = async () => {
+      try {
+        const data = await fetchGames();
+        if (data && data.length > 0) {
+          setGames(data);
+          setLoading(false);
+          // Limpa o timeout de retry caso os dados tenham sido carregados
+          if (retryTimeout.current) {
+            clearTimeout(retryTimeout.current);
+            retryTimeout.current = null;
+          }
+        } else {
+          // Se os dados estiverem vazios, tenta novamente após 3 segundos
+          if (!retryTimeout.current) {
+            retryTimeout.current = setTimeout(loadGames, 3000);
+          }
+        }
+      } catch (error) {
+        console.error("Erro ao buscar jogos:", error);
+        // Em caso de erro, tenta novamente após 3 segundos
+        if (!retryTimeout.current) {
+          retryTimeout.current = setTimeout(loadGames, 3000);
+        }
+      }
+    };
+
+    // Carrega os jogos inicialmente
     loadGames();
+
+    // Configura o intervalo para atualizar os jogos a cada 10 segundos
+    intervalId.current = setInterval(loadGames, 10000);
+
+    // Cleanup na desmontagem do componente
+    return () => {
+      if (retryTimeout.current) {
+        clearTimeout(retryTimeout.current);
+      }
+      if (intervalId.current) {
+        clearInterval(intervalId.current);
+      }
+    };
   }, []);
-
-  // Oculta um jogo
-  const hideGame = (gameId: number) => {
-    const gameToHide = games.find((game) => game.id === gameId);
-    setGames(games.filter((game) => game.id !== gameId));
-    setHiddenGames([...hiddenGames, gameToHide]);
-  };
-
-  // Restaura um jogo ocultado
-  const restoreGame = (gameId: number) => {
-    const gameToRestore = hiddenGames.find((game) => game.id === gameId);
-    setHiddenGames(hiddenGames.filter((game) => game.id !== gameId));
-    setGames([...games, gameToRestore]);
-  };
 
   if (loading) {
     return (
@@ -48,52 +69,22 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">
           Jogos de Hoje
         </h1>
-        {/* Lista de jogos visíveis */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {games.map((game) => (
-            <div key={game.id} className="relative">
-              <GameCard
-                championship={game.championship}
-                teamHome={game.teamInitialsHome}
-                teamAway={game.teamInitialsAway}
-                gameTime={game.gameTime}
-                goalsHome={game.goalsHome}
-                goalsAway={game.goalsAway}
-                teamUrlLogoHome={game.teamUrlLogoHome}
-                teamUrlLogoAway={game.teamUrlLogoAway}
-                realtime={game.realtime}
-              />
-              {/* Botão para ocultar */}
-              <button
-                className="absolute top-2 right-2 bg-white p-1 rounded-full shadow-md hover:bg-gray-100"
-                onClick={() => hideGame(game.id)}
-              >
-                <EyeOff className="w-4 h-4 text-gray-700" />
-              </button>
-            </div>
+            <GameCard
+              key={game.id}
+              championship={game.championship}
+              teamHome={game.teamInitialsHome}
+              teamAway={game.teamInitialsAway}
+              gameTime={game.gameTime}
+              goalsHome={game.goalsHome}
+              goalsAway={game.goalsAway}
+              teamUrlLogoHome={game.teamUrlLogoHome}
+              teamUrlLogoAway={game.teamUrlLogoAway}
+              realtime={game.realtime}
+            />
           ))}
         </div>
-
-         {/* Seção de jogos ocultados */}
-         {hiddenGames.length > 0 && (
-            <div className="mt-12">
-              <h2 className="text-2xl font-semibold text-center mb-4 text-gray-800 dark:text-gray-100">
-                Jogos Ocultados
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4">
-                {hiddenGames.map((game) => (
-                  <HiddenGameCard
-                    key={game.id}
-                    teamHome={game.teamInitialsHome}
-                    teamAway={game.teamInitialsAway}
-                    teamUrlLogoHome={game.teamUrlLogoHome}
-                    teamUrlLogoAway={game.teamUrlLogoAway}
-                    onRestore={() => restoreGame(game.id)}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
       </div>
     </div>
   );

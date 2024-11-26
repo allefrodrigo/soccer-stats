@@ -1,0 +1,163 @@
+[
+    {
+      "id": 1,
+      "date": "25/11/2024",
+      "match": "CA 1+",
+      "betAmount": 5.0,
+      "status": "Perdida",
+      "gain": 0.0
+    },
+    {
+      "id": 2,
+      "date": "25/11/2024",
+      "match": "CA 1+, Mais de 1.5",
+      "betAmount": 20.0,
+      "status": "Perdida",
+      "gain": 0.0
+    },
+    {
+      "id": 3,
+      "date": "25/11/2024",
+      "match": "CA Al-Nassr FC",
+      "betAmount": 20.0,
+      "status": "Ganhou",
+      "gain": 35.6
+    },
+    {
+      "id": 4,
+      "date": "24/11/2024",
+      "match": "CA Lazio",
+      "betAmount": 20.0,
+      "status": "Cash Out",
+      "gain": 44.83
+    },
+    {
+        "id": 6574203221,
+        "date": "24/11/2024",
+        "match": "7-seleções",
+        "betAmount": 10.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "Ceará, Mais de 0.5, Mais de 1.5, Mais de 1.5, Real Madrid, Manchester United, Napoli"
+      },
+      {
+        "id": 6574176315,
+        "date": "24/11/2024",
+        "match": "Dupla",
+        "betAmount": 20.0, "status": "Perdida",
+        "gain": 0.0,
+        "details": "CA Real Madrid, CA Ceará"
+      },
+      {
+        "id": 6572813170,
+        "date": "24/11/2024",
+        "match": "Simples",
+        "betAmount": 10.0,
+        "status": "Ganhou",
+        "gain": 25.2,
+        "details": "CA Fiorentina"
+      },
+      {
+        "id": 6572806187,
+        "date": "24/11/2024",
+        "match": "Dupla",
+        "betAmount": 20.0,
+        "status": "Ganhou",
+        "gain": 56.1,
+        "details": "CA Mais de 1.5, X2 e Mais de 1.5"
+      },
+      {
+        "id": 6570079519,
+        "date": "23/11/2024",
+        "match": "Dupla",
+        "betAmount": 20.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "CA Palmeiras, Mais de 1.5"
+      },
+      {
+        "id": 6568939282,
+        "date": "23/11/2024",
+        "match": "8-seleções",
+        "betAmount": 5.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "Racing Club, Atalanta, 1 e Mais de 1.5, Palmeiras, Juventude-RS, São Paulo, 1 e Mais de 1.5, 2 e Mais de 1.5",
+        "isFreeBet": true
+      },
+      {
+        "id": 6568712080,
+        "date": "23/11/2024",
+        "match": "Dupla",
+        "betAmount": 20.0,
+        "status": "Ganhou",
+        "gain": 39.46,
+        "details": "X2 e Mais de 1.5, X2 e Mais de 1.5"
+      },
+      {
+        "id": 6568707100,
+        "date": "23/11/2024",
+        "match": "Dupla",
+        "betAmount": 10.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "2 e Mais de 1.5, 2 e Mais de 1.5"
+      },
+      {
+        "id": 6567454835,
+        "date": "23/11/2024",
+        "match": "Simples",
+        "betAmount": 10.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "Rangers FC"
+      },
+      {
+        "id": 6564683833,
+        "date": "23/11/2024",
+        "match": "5-seleções",
+        "betAmount": 20.0,
+        "status": "Ganhou",
+        "gain": 44.17,
+        "details": "Mais de 0.5, 1 e Mais de 1.5, Mais de 0.5, Atlético de Madrid, Mais de 0.5"
+      },
+      {
+        "id": 6564678322,
+        "date": "23/11/2024",
+        "match": "Tripla",
+        "betAmount": 20.0,
+        "status": "Cash Out",
+        "gain": 52.77,
+        "details": "Inter de Milão, Atlético de Madrid, CA Mais de 1.5"
+      },
+      {
+        "id": 6559931508,
+        "date": "22/11/2024",
+        "match": "Tripla",
+        "betAmount": 20.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "Paris Saint Germain, 1X e Mais de 1.5, CA Bayern Munique"
+      },
+      {
+        "id": 6557928911,
+        "date": "21/11/2024",
+        "match": "Simples",
+        "betAmount": 20.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "CA X2"
+      },
+      {
+        "id": 6557488270,
+        "date": "21/11/2024",
+        "match": "Tripla",
+        "betAmount": 20.0,
+        "status": "Perdida",
+        "gain": 0.0,
+        "details": "Mais de 1.5, River Plate, CA Talleres de Cordoba"
+      }
+    
+      
+  ]
+  
