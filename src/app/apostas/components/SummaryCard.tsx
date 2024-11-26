@@ -25,7 +25,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
       <div className="flex-1 pr-4">
         <div className="mb-4">
           <p className="text-xs text-gray-600 dark:text-gray-400 px-2 py-1">
-            Card em construção — Dados contidos nele podem não refletir a realidade.
+            Valor real da carteiramente somente após conclusão de todas apostas em andamento.
           </p>
         </div>
 
