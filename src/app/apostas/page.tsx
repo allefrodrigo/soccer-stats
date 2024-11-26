@@ -75,17 +75,11 @@ const Apostas: React.FC = () => {
   }, [filter, bets]);
 
   // Cálculo do resumo
-  const totalBetAmount = filteredBets
-    .filter((bet) => !bet.isFreeBet) // Exclui free bets
+  const totalGain = bets.reduce((total, bet) => total + bet.gain, 0); // Soma todos os ganhos
+  const totalLost = bets
+    .filter((bet) => bet.status === 'Perdida') // Soma todas as perdas
     .reduce((total, bet) => total + bet.betAmount, 0);
-
-  const totalProfit = filteredBets
-    .filter((bet) => bet.status === 'Ganhou' || bet.status === 'Cash Out') // Lucro só em ganhos ou cash out
-    .reduce((total, bet) => total + (bet.gain - bet.betAmount), 0);
-
-  const totalLost = filteredBets
-    .filter((bet) => bet.status === 'Perdida') // Considera apenas as apostas perdidas
-    .reduce((total, bet) => total + bet.betAmount, 0);
+  const netProfit = totalGain - totalLost; // Lucro líquido: ganhos - perdas
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-8">
@@ -114,9 +108,9 @@ const Apostas: React.FC = () => {
         {/* Resumo */}
         <div className="mb-6">
           <SummaryCard
-            totalBetAmount={totalBetAmount}
-            totalProfit={totalProfit}
-            totalLost={totalLost}
+            totalBetAmount={bets.reduce((total, bet) => total + bet.betAmount, 0)} // Soma todos os valores apostados
+            totalProfit={totalGain} // Total de ganhos
+            totalLost={totalLost} // Total de perdas
           />
         </div>
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">

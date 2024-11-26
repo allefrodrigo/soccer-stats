@@ -4,13 +4,13 @@ import React from 'react';
 import OpenBetsCard from './OpenBets';
 
 interface SummaryCardProps {
-  totalBetAmount: number; // Total de valor apostado (sem contar free bets)
-  totalProfit: number; // Total de lucros (ganho líquido das apostas)
+  totalBetAmount: number; // Total de valor apostado
+  totalProfit: number; // Total de ganhos (soma direta dos ganhos)
   totalLost: number; // Total perdido
 }
 
 const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, totalLost }) => {
-  const netProfit = totalProfit;
+  const netProfit = totalProfit - totalLost; // Lucro líquido: ganhos - perdas
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -40,23 +40,30 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
           </div>
         </div>
 
-        <div className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-          {formatCurrency(netProfit)}
-        </div>
-
         <div className="grid grid-cols-3 gap-4 text-sm text-gray-700 dark:text-gray-300">
           <div>
-            <p>Apostas</p>
+            <p>Total Apostado</p>
             <p className="font-bold">{formatCurrency(totalBetAmount)}</p>
           </div>
           <div>
-            <p>Lucro</p>
-            <p className="font-bold">{formatCurrency(totalProfit)}</p>
+            <p>Total de Ganhos</p>
+            <p className="font-bold text-green-500">{formatCurrency(totalProfit)}</p>
           </div>
           <div>
-            <p>Perdido</p>
-            <p className="font-bold">{formatCurrency(totalLost)}</p>
+            <p>Total Perdido</p>
+            <p className="font-bold text-red-500">{formatCurrency(totalLost)}</p>
           </div>
+        </div>
+
+        <div className="mt-4">
+          <p className="text-sm text-gray-600 dark:text-gray-400">Lucro Líquido</p>
+          <p
+            className={`text-2xl font-bold ${
+              netProfit >= 0 ? 'text-green-500' : 'text-red-500'
+            }`}
+          >
+            {formatCurrency(netProfit)}
+          </p>
         </div>
       </div>
 
