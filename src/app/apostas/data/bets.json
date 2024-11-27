@@ -48,6 +48,15 @@
     "details": "Barcelona, Manchester City, Bayer Leverkusen, Palmeiras"
   },
   {
+    "id": 6582708558,
+    "date": "26/11/2024",
+    "match": "Dupla",
+    "betAmount": 15.00,
+    "status": "Perdida",
+    "gain": 0.00,
+    "details": "CA Bayern Munique, CA Inter de Milão"
+  },
+  {
     "id": 6582707081,
     "date": "26/11/2024",
     "match": "Dupla",
@@ -65,31 +74,27 @@
     "gain": 44.93,
     "details": "Mais de 0.5, Atlético de Madrid, AC Milan, Bayern Munique, Inter de Milão, Atalanta"
   },
+
   {
-    "id": 6582708558,
-    "date": "26/11/2024",
-    "match": "Dupla",
-    "betAmount": 15.00,
+    "id": 6579919825,
+    "date": "25/11/2024",
+    "match": "Simples",
+    "betAmount": 5.00,
     "status": "Perdida",
-    "gain": 0.00,
-    "details": "CA Bayern Munique, CA Inter de Milão"
+    "gain": 0.0,
+    "details": "CA 1+"
   },
+
   {
-      "id": 1,
-      "date": "25/11/2024",
-      "match": "CA 1+",
-      "betAmount": 5.0,
-      "status": "Perdida",
-      "gain": 0.0
-    },
-    {
-      "id": 2,
-      "date": "25/11/2024",
-      "match": "CA 1+, Mais de 1.5",
-      "betAmount": 20.0,
-      "status": "Perdida",
-      "gain": 0.0
-    },
+    "id": 6579318298,
+    "date": "25/11/2024",
+    "match": "Dupla",
+    "betAmount": 20.00,
+    "status": "Perdida",
+    "gain": 0.0,
+    "details": "CA 1+, Mais de 1.5"
+  },
+
     {
       "id": 3,
       "date": "25/11/2024",
