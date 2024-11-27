@@ -101,7 +101,7 @@ const Apostas: React.FC = () => {
         {/* Resumo Responsivo */}
         <div className="mb-6">
           <SummaryCard
-totalBetAmount={bets.filter((bet) => !bet.isFreeBet).reduce((total, bet) => total + bet.betAmount, 0)}
+totalBetAmount={bets.reduce((total, bet) => total + bet.betAmount, 0)}
 totalProfit={totalGain}
             totalLost={totalLost}
           />
