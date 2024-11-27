@@ -134,7 +134,8 @@
         "id": 6574176315,
         "date": "24/11/2024",
         "match": "Dupla",
-        "betAmount": 20.0, "status": "Perdida",
+        "betAmount": 20.0, 
+        "status": "Perdida",
         "gain": 0.0,
         "details": "CA Real Madrid, CA Ceará"
       },
