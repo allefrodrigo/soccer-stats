@@ -1,5 +1,26 @@
 [
   {
+    "id": 6589388512,
+    "date": "27/11/2024",
+    "match": "6-seleções",
+    "betAmount": 5.00,
+    "status": "Perdida",
+    "gain": 0.00,
+    "details": "VfB Stuttgart, Girona FC, Borussia Dortmund, Celtic, Mais de 2, CA 1+",
+    "isFreeBet": true
+  },
+
+  {
+    "id": 6589853021,
+    "date": "27/11/2024",
+    "match": "Dupla",
+    "betAmount": 20.00,
+    "status": "Perdida",
+    "gain": 0.00,
+    "details": "VfB Stuttgart, Girona FC"
+  },
+
+  {
     "id": 6586759300,
     "date": "26/11/2024",
     "match": "Tripla",
