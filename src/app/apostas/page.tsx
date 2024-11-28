@@ -69,9 +69,11 @@ const Apostas: React.FC = () => {
     filterBets();
   }, [filter, bets]);
 
-  const totalGain = bets.reduce((total, bet) => total + bet.gain, 0);
+  // Cálculo de valores
+  const totalBetAmount = bets.reduce((total, bet) => total + bet.betAmount, 0); // Inclui todas as apostas
+  const totalGain = bets.reduce((total, bet) => total + bet.gain, 0); // Inclui todos os ganhos
   const totalLost = bets
-    .filter((bet) => bet.status === 'Perdida' && !bet.isFreeBet) // Exclui freeBets
+    .filter((bet) => bet.status === 'Perdida' && !bet.isFreeBet) // Exclui apenas FreeBets das perdas
     .reduce((total, bet) => total + bet.betAmount, 0);
 
   return (
@@ -101,11 +103,12 @@ const Apostas: React.FC = () => {
         {/* Resumo Responsivo */}
         <div className="mb-6">
           <SummaryCard
-totalBetAmount={bets.reduce((total, bet) => total + bet.betAmount, 0)}
-totalProfit={totalGain}
-            totalLost={totalLost}
+            totalBetAmount={totalBetAmount} // Total de apostas (inclui FreeBets)
+            totalProfit={totalGain} // Total de ganhos
+            totalLost={totalLost} // Total perdido (exclui FreeBets)
           />
         </div>
+
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-gray-100">
           Apostas Liquidadas
         </h1>
