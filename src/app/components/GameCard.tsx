@@ -2,9 +2,6 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
-import SoccerHeatmap from "./Heatmap"; // Importe o componente SoccerHeatmap
-import SoccerDialog from "./SoccerDialog";
 
 interface GameCardProps {
   championship: string;
@@ -20,7 +17,7 @@ interface GameCardProps {
     idChampionship: number;
     idHome: number;
     idMatch: number;
-  }; // Novas props para o heatmap
+  };
 }
 
 export default function GameCard({
@@ -37,19 +34,17 @@ export default function GameCard({
 }: GameCardProps) {
   const [open, setOpen] = useState(false);
 
-  // Determinar o lado vencedor
   const isHomeWinning =
     goalsHome !== null && goalsAway !== null && goalsHome > goalsAway;
   const isAwayWinning =
     goalsHome !== null && goalsAway !== null && goalsAway > goalsHome;
 
-  // Funções para abrir e fechar o Dialog
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div
-      className={`rounded-lg shadow-md p-4 ${
+      className={`relative rounded-lg shadow-md p-4 ${
         isHomeWinning
           ? "border-l-4 border-l-green-500"
           : isAwayWinning
@@ -57,6 +52,15 @@ export default function GameCard({
           : "border-transparent"
       } bg-white dark:bg-gray-800`}
     >
+      {/* Efeito "Ao Vivo" */}
+      {(gameTime === "1°T" || gameTime === "2°T") && (
+  <div className="absolute top-2 right-2 flex items-center space-x-1 bg-red-600 text-white px-2 py-0.5 rounded-full shadow-lg">
+    <span className="font-bold text-xs">LIVE</span>
+    <span className="w-2.5 h-2.5 border border-white rounded-full animate-pulse"></span>
+  </div>
+)}
+
+
       {/* Campeonato */}
       <h3 className="text-sm font-bold text-center text-gray-700 dark:text-gray-300 mb-2">
         {championship}
@@ -108,20 +112,6 @@ export default function GameCard({
           </span>
         </div>
       </div>
-
-      {/* Link para abrir o Dialog */}
-      {/* <div className="text-center mt-4">
-        <button
-          onClick={handleOpen}
-          className="text-blue-500 hover:underline text-sm font-semibold"
-        >
-          Ver Heat Map
-        </button>
-      </div> */}
-
-      {/* Dialog com o heatmap */}
-      {/* <SoccerDialog open={open} onClose={handleClose} /> */}
-
     </div>
   );
 }
