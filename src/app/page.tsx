@@ -84,7 +84,7 @@ export default function Home() {
     "UEFA Conference League 2024/2025":
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/UEFA_Conference_League_full_logo_%282024_version%29.svg/1200px-UEFA_Conference_League_full_logo_%282024_version%29.svg.png",
     "Liga Profissional Saudita 2024/2025":
-    "  https://frontendapiapp.blob.core.windows.net/images/campeonatos/logo%20da%20liga%20arabia%20saudita%20futebol.png"
+    "https://frontendapiapp.blob.core.windows.net/images/campeonatos/logo%20da%20liga%20arabia%20saudita%20futebol.png"
     
     };
 
