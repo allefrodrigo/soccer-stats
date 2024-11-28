@@ -56,7 +56,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
         </div>
 
         <div className="mt-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">Saldo</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Victor Freire dá o boga por:</p>
           <p
             className={`text-2xl font-bold ${
               netProfit >= 0 ? 'text-green-500' : 'text-red-500'
