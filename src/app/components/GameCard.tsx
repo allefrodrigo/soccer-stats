@@ -55,7 +55,7 @@ export default function GameCard({
       {/* Efeito "Ao Vivo" */}
       {(gameTime === "1°T" || gameTime === "2°T") && (
   <div className="absolute top-2 right-2 flex items-center space-x-1 bg-red-600 text-white px-2 py-0.5 rounded-full shadow-lg">
-    <span className="font-bold text-xs">LIVE</span>
+    <span className="font-bold text-xs">AO VIVO</span>
     <span className="w-2.5 h-2.5 border border-white rounded-full animate-pulse"></span>
   </div>
 )}
