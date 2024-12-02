@@ -62,7 +62,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ totalBetAmount, totalProfit, 
               netProfit >= 0 ? 'text-green-500' : 'text-red-500'
             }`}
           >
-            {formatCurrency(netProfit)}
+            {formatCurrency(netProfit-15.0)}
           </p>
         </div>
       </div>

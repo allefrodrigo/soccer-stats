@@ -1,5 +1,90 @@
 [
-  
+  {
+    "id": 6615689578,
+    "date": "01/12/2024 - 16:02",
+    "match": "Simples",
+    "betAmount": 10.0,
+    "status": "Perdida",
+    "gain": 0.0,
+    "details": "Internacional"
+},
+{
+    "id": 6615408100,
+    "date": "01/12/2024 - 15:40",
+    "match": "Tripla",
+    "betAmount": 20.0,
+    "status": "Perdida",
+    "gain": 0.0,
+    "details": "X2, Mais de 1.5, Mais de 1.5"
+},
+{
+    "id": 6608128366,
+    "date": "30/11/2024 - 16:58",
+    "match": "Simples",
+    "betAmount": 5.0,
+    "status": "Ganhou",
+    "gain": 13.6,
+    "details": "Chutes a gol Hulk 0.5: Mais de 0.5 & Chutes a gol Luiz Henrique 0.5: Mais de 0.5"
+}, 
+{
+  "id": 6607785509,
+  "date": "30/11/2024 - 16:32",
+  "match": "Simples",
+  "betAmount": 10.00,
+  "status": "Perdida",
+  "gain": 0.00,
+  "details": "CA Sim"
+},
+{
+  "id": 6607763501,
+  "date": "30/11/2024 - 16:31",
+  "match": "Tripla",
+  "betAmount": 5.00,
+  "status": "Perdida",
+  "gain": 0.00,
+  "details": "X2, Vasco da Gama, Mais de 0.5"
+},
+{
+  "id": 6607558319,
+  "date": "30/11/2024 - 16:13",
+  "match": "Tripla",
+  "betAmount": 5.00,
+  "status": "Perdida",
+  "gain": 0.00,
+  "details": "Corinthians, Mais de 1.5, Vasco da Gama"
+},
+ 
+{
+  "id": 6600620782,
+  "date": "29/11/2024 - 16:14",
+  "match": "Dupla",
+  "betAmount": 10.00,
+  "status": "Perdida",
+  "gain": 0.00,
+  "details": "CA Brighton & Hove Albion, FC St. Pauli"
+},
+{
+  "id": 6599643676,
+  "date": "29/11/2024 - 12:37",
+  "match": "8-seleções (FreeBet)",
+  "betAmount": 5.00,
+  "status": "Cash Out",
+  "isFreeBet": true,
+  "gain": 51.16,
+  "details": "Chelsea, Tottenham, Corinthians, Bahia, Napoli, Lazio, Bayer Leverkusen, 2 e Mais de 1.5"
+},
+{
+  "id": 6599578678,
+  "date": "29/11/2024 - 12:21",
+  "match": "Tripla",
+  "betAmount": 10.00,
+  "status": "Perdida",
+  "gain": 0.00,
+  "details": "Mallorca, Atlético Nacional, Wydad Athletic Club Casablanca"
+},
+
+ 
+ 
   {
     "id": 6599443354,
     "date": "29/11/2024",
